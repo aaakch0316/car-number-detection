@@ -10,10 +10,6 @@ if (process.env.NODE_ENV === "production") {
 } 
 require("dotenv").config({ path: envFile });
 
-// connecti mysql
-const mysql = require('mysql')
-const dbconfig = require('./config/mysql.js')
-const connectDB = mysql.createConnection(dbconfig)
 
 const express = require("express");
 const app = express();
@@ -52,6 +48,11 @@ app.use(function (req, res, next) {
 app.use(express.json()).use(express.urlencoded());
 
 
+// connecti mysql
+// const mysql = require('mysql')
+// const dbconfig = require('./config/mysql.js')
+// const connectDB = mysql.createConnection(dbconfig)
+
 
 
 app.use("/ping", async (req, res) => {
@@ -59,6 +60,22 @@ app.use("/ping", async (req, res) => {
   res.json({ response: "pong" });
 });
 
+app.use("/test", async (req, res) => {
+  const connectDB = require('./middleware/mysql.js')
+  console.log('API : db-test')
+  connectDB.query('SELECT * from customer', (error, rows) => {
+    if (error) throw error;
+    console.log('User info is: ', rows);
+    res.send(rows);
+  });
+})
+
+app.get("/", (req, res) => {
+  return res.end();
+});
+
+
+app.use("car", require("./router/car"))
 // app.use("/user", require("./router/user"));
 // app.use("/customer", require("./router/customer"));
 // app.use("/visitor", require("./router/visitor"));

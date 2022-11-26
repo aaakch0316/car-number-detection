@@ -20,6 +20,23 @@ $ docker start mysql-container
 $ docker restart mysql-container
 
 # container 접속
-$ docker exec -it mysql-container bash
+$ docker exec -ti a2640946540a bash
+
+$ mysql -uroot -proot
+
+mysql> use hsg
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+ß
+Database changed
+mysql> select * from customer
+    -> ;
++----+--------+------+
+| id | name   | type |
++----+--------+------+
+| 0  | sonata | 7282 |
+| 1  | ???    | 3020 |
++----+--------+------+
+2 rows in set (0.00 sec)
 
 ```
