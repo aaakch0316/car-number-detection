@@ -70,17 +70,17 @@ app.use("/test", async (req, res) => {
   });
 })
 
-app.get("/", (req, res) => {
-  return res.end();
-});
-
-
-app.use("car", require("./router/car"))
+app.use("/car", require("./router/car"))
 // app.use("/user", require("./router/user"));
 // app.use("/customer", require("./router/customer"));
 // app.use("/visitor", require("./router/visitor"));
 // app.use("/car", require("./router/car"));
 // app.use("/valet", require("./router/valet"));
+
+app.get("/", (req, res) => {
+  return res.end();
+});
+
 
 const http_port = process.env.HTTP_PORT || 3005;
 const https_port = process.env.HTTPS_PORT || 3443;
@@ -100,3 +100,4 @@ http.createServer(app).listen(http_port, async () => {
 //         console.log("express https port", https_port);
 //     });
 // }
+
