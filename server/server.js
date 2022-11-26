@@ -52,6 +52,11 @@ app.use("/ping", async (req, res) => {
   res.json({ response: "pong" });
 });
 
+app.use("/user", require("./router/user"));
+app.use("/customer", require("./router/customer"));
+app.use("/visitor", require("./router/visitor"));
+app.use("/car", require("./router/car"));
+app.use("/valet", require("./router/valet"));
 
 const http_port = process.env.HTTP_PORT || 3005;
 const https_port = process.env.HTTPS_PORT || 3443;
