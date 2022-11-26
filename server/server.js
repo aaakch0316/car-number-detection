@@ -8,8 +8,12 @@ if (process.env.NODE_ENV === "production") {
 } else if (process.env.NODE_ENV === "local") {
     envFile = ".env.local"
 } 
-
 require("dotenv").config({ path: envFile });
+
+// connecti mysql
+const mysql = require('mysql')
+const dbconfig = require('./config/mysql.js')
+const connectDB = mysql.createConnection(dbconfig)
 
 const express = require("express");
 const app = express();
@@ -47,16 +51,19 @@ app.use(function (req, res, next) {
 
 app.use(express.json()).use(express.urlencoded());
 
+
+
+
 app.use("/ping", async (req, res) => {
   console.log("============ pong ============");
   res.json({ response: "pong" });
 });
 
-app.use("/user", require("./router/user"));
-app.use("/customer", require("./router/customer"));
-app.use("/visitor", require("./router/visitor"));
-app.use("/car", require("./router/car"));
-app.use("/valet", require("./router/valet"));
+// app.use("/user", require("./router/user"));
+// app.use("/customer", require("./router/customer"));
+// app.use("/visitor", require("./router/visitor"));
+// app.use("/car", require("./router/car"));
+// app.use("/valet", require("./router/valet"));
 
 const http_port = process.env.HTTP_PORT || 3005;
 const https_port = process.env.HTTPS_PORT || 3443;
