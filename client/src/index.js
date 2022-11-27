@@ -16,16 +16,17 @@ import { Link } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-        <h1>한시경 프로젝트</h1>
+    <h1>한시경 프로젝트</h1>
       <nav
         style={{
           borderBottom: "solid 1px",
           paddingBottom: "1rem",
         }}
       >
-        <Link to="/login">login</Link> | {" "}
-        <Link to="/signup">signup</Link> | {" "}
-        <Link to="/customer">customer</Link> | {" "}
+        <Link to="/">HOME</Link> | {" "}
+        <Link to="/login">LOGIN</Link> | {" "}
+        <Link to="/signup">SIGNUP</Link> | {" "}
+        <Link to="/customer">CUSTOMER</Link> | {" "}
       </nav>
     <Routes>
       <Route path="/" element={<App />} />
