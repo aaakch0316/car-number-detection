@@ -1,12 +1,9 @@
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          한시경 프로젝트 첫 페이지.
-        </p>
-      </header>
+      <h1>환영합니다. 첫페이지입니다~!</h1>
     </div>
   );
 }
