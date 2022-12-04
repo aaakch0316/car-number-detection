@@ -40,12 +40,12 @@ const data = [
   },
 ];
 
-export default function Customer() {
+export default function VisitorAccess() {
   const { Column, ColumnGroup } = Table;
   return (
     <Header>
       <main style={{ padding: "1rem 3rem" }}>
-        <h2>Customer</h2>
+        <h2>Visitor Access</h2>
         <Table dataSource={data}>
           <ColumnGroup title="Name">
             <Column title="First Name" dataIndex="firstName" key="firstName" />

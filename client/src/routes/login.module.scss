@@ -1,7 +1,36 @@
-.aaa {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
     width: 20rem;
     margin: 0 auto;
+    width: 800px;
 }
+
+.imageContainer {
+    // border: 1px solid;
+    width: 400px;
+    height: 500px;
+}
+
+.image {
+    width: 400px;
+    height: 500px;
+    opacity: 0.8;
+}
+
+.formContainer {
+    // border: 1px solid;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    background-color: #f1f2f4;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 
 .controls {
     display: flex;

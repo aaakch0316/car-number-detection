@@ -1,11 +1,25 @@
 import styles from './LNB.module.scss'
+import { Link } from "react-router-dom";
+
 const LNB = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.item}>Customers Info</div>
-      <div className={styles.item}>Visitor Info</div>
-      <div className={styles.item}>Car Info</div>
-      <div className={styles.item}>Valet Info</div>
+      <Link to='/customer' style={{ textDecoration: 'none' }}>
+        <div className={styles.item}>Customers Info</div>
+      </Link>
+      <Link to='/visitor-access' style={{ textDecoration: 'none' }}>
+        <div className={styles.item}>Visitor Info</div>
+      </Link>
+      {/* <div className={styles.item}>
+        <Link to=''>Car Info</Link>
+      </div>
+      <div className={styles.item}>
+        <Link to=''>Valet Info</Link>
+      </div> */}
+      <hr className={styles.line} />
+      <Link to='/worker-monitoring' style={{ textDecoration: 'none' }}>
+        <div className={styles.item}>Worker Monitering</div>
+      </Link>
     </div>
   )
 }

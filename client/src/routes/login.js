@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './login.module.scss';
+
 // import "./login.css"
 
 const Login = () => {
@@ -27,24 +28,29 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.aaa}>
-      <form onSubmit={submitHandler}>
-        <h2>Login</h2>
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <img className={styles.image} src="/images/parking-lot.jpg" />
+      </div>
+      <div className={styles.formContainer}>
+        <form onSubmit={submitHandler}>
+          <h2>VCMS Login</h2>
 
-        <div className={styles.controls}>
-          <div className={styles.control}>
-            <label>ID</label>
-            <input type="text" value={enteredId} onChange={idChangeHandler} />
+          <div className={styles.controls}>
+            <div className={styles.control}>
+              <label>ID</label>
+              <input type="text" value={enteredId} onChange={idChangeHandler} />
+            </div>
+            <div className={styles.control}>
+              <label>PW</label>
+              <input type="text" value={enteredPw} onChange={pwChangeHandler} />
+            </div>
           </div>
-          <div className={styles.control}>
-            <label>PW</label>
-            <input type="text" value={enteredPw} onChange={pwChangeHandler} />
+          <div className={styles.actions}>
+            <button type='submit'>로그인</button>
           </div>
-        </div>
-        <div className={styles.actions}>
-          <button type='submit'>로그인</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div >
   )
 }
