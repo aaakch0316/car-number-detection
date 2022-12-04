@@ -2,10 +2,10 @@ import styles from './LNB.module.scss'
 const LNB = () => {
   return (
     <div className={styles.container}>
-      <div>Customers Info</div>
-      <div>Visitor Info</div>
-      <div>Car Info</div>
-      <div>Valet Info</div>
+      <div className={styles.item}>Customers Info</div>
+      <div className={styles.item}>Visitor Info</div>
+      <div className={styles.item}>Car Info</div>
+      <div className={styles.item}>Valet Info</div>
     </div>
   )
 }
