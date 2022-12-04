@@ -1,14 +1,27 @@
-$gnbHeight: 96px;
+$gnbHeight: 56px;
 .container {
   display: flex;
   flex-direction: column;
   position: fixed;
   top: $gnbHeight;
   left: 0;
-  width: 248px;
+  width: 210px;
   height: 100vh;
   background-color: #2b2f5a;
   z-index: 150;
   padding: 16px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.08);
+  .item {
+    font-size: 12px;
+    line-height: 26px;
+    color: #9fa4bc;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    // transition: all ease-in-out 0.1s;
+    // &:hover {
+    //   color: white;
+    //   background-color: opacify($color: #2f80ed, $amount: 0.16);
+    // }
+  }
 }
