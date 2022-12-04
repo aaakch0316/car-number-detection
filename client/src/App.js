@@ -1,9 +1,26 @@
 import styles from './App.module.scss'
+import VideoBox from "./routes/videoBox.js"
+import Notification from "./routes/notification.js"
 
 function App() {
   return (
-    <div className={styles.container}>
-      <h1>환영합니다. 첫페이지입니다~!</h1>
+    <div className={styles.title}>
+      <div>
+        <h1>aaaaaaaaaaaaaaaaaaaaa</h1>
+      </div>
+      <VideoBox />
+      <VideoBox />
+      <VideoBox />
+      <VideoBox />
+      <Notification />
+      <Notification />
+      <Notification />
+      <Notification />
+      <Notification />
+      <Notification />
+      <Notification />
+      <Notification />
+
     </div>
   );
 }
