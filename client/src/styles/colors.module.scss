@@ -1,0 +1,108 @@
+$white: #fff;
+
+$dbBlack: #282b31;
+$blackOpacity1: transparentize(#000, 0.2);
+$blackOpacity2: transparentize(#000, 0.35);
+$blackOpacity3: transparentize(#000, 0.5);
+
+$gray1: #12102d;
+$gray2: #222548;
+$gray3: #2b2f5a;
+$gray4: #4c5175;
+$gray5: #686d8b;
+$gray6: #9fa4bc;
+$gray7: #bec2d2;
+$gray8: #dcdfe8;
+$gray9: #e7e9ee;
+$gray10: #f1f2f4;
+$gray11: #f8f9fa;
+
+$blue1: #195cb7;
+$blue2: #2f80ed;
+$blue3: #5999f1;
+$blue4: #82b3f4;
+$blue5: #acccf8;
+$blue6: #d5e6fb;
+$blue7: #e4effd;
+$blue8: #f2f8ff;
+
+$poacockBlue1: #3b719d;
+$poacockBlue2: #2d9cdb;
+$poacockBlue3: #00cce1;
+$poacockBlue6: #ccf5f9;
+
+$green1: #2bab62;
+$green2: #52c41a;
+$green6: #dcf3d1;
+
+$cyan1: #21d0b2;
+$cyan2: #34f5c5;
+
+$pink1: #fd72b8;
+$pink6: #ffe3f1;
+$purple1: #9b51e0;
+$purple6: #ebdcf9;
+$red1: #e00751;
+$orange1: #f6791f;
+$yellow1: #f2c94c;
+$yellow6: #fcf4db;
+
+$gradientDb1: linear-gradient(135deg, #195cb7, #21d0b2);
+$gradientDb2: radial-gradient(#141515, #002d4e);
+$gradientDb3: linear-gradient(135deg, #242750, #4c5175);
+$gradientDb4: linear-gradient(135deg, #2b2f5a, #12102d);
+
+:export {
+  white: $white;
+
+  dbBlack: $dbBlack;
+  blackOpacity1: $blackOpacity1;
+  blackOpacity2: $blackOpacity2;
+  blackOpacity3: $blackOpacity3;
+
+  gray1: $gray1;
+  gray2: $gray2;
+  gray3: $gray3;
+  gray4: $gray4;
+  gray5: $gray5;
+  gray6: $gray6;
+  gray7: $gray7;
+  gray8: $gray8;
+  gray9: $gray9;
+  gray10: $gray10;
+  gray11: $gray11;
+
+  blue1: $blue1;
+  blue2: $blue2;
+  blue3: $blue3;
+  blue4: $blue4;
+  blue5: $blue5;
+  blue6: $blue6;
+  blue7: $blue7;
+  blue8: $blue8;
+
+  green1: $green1;
+  green2: $green2;
+  green6: $green6;
+
+  cyan1: $cyan1;
+  cyan2: $cyan2;
+
+  pink1: $pink1;
+  pink6: $pink6;
+
+  purple1: $purple1;
+  purple6: $purple6;
+
+  red1: $red1;
+
+  orange1: $orange1;
+
+  yellow1: $yellow1;
+  yellow6: $yellow6;
+
+  gradientDb1: $gradientDb1;
+  gradientDb2: $gradientDb2;
+  gradientDb3: $gradientDb3;
+  gradientDb4: $gradientDb4;
+}

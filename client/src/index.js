@@ -9,14 +9,15 @@ import App from './App';
 import Customer from './routes/customer';
 import Login from './routes/login';
 import Signup from './routes/signup';
-import { Link } from "react-router-dom";
+import WorkerMonitor from './routes/worker-monitoring';
+// import { Link } from "react-router-dom";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <h1>한시경 프로젝트</h1>
+    {/* <h1>한시경 프로젝트</h1>
       <nav
         style={{
           borderBottom: "solid 1px",
@@ -27,12 +28,13 @@ root.render(
         <Link to="/login">LOGIN</Link> | {" "}
         <Link to="/signup">SIGNUP</Link> | {" "}
         <Link to="/customer">CUSTOMER</Link> | {" "}
-      </nav>
+      </nav> */}
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="customer" element={<Customer />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="worker-monitoring" element={<WorkerMonitor />} />
     </Routes>
   </BrowserRouter>
 );
