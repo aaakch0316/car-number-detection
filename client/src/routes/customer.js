@@ -72,7 +72,7 @@ export default function Customer() {
             key="action"
             render={(_, record) => (
               <Space size="middle">
-                {record.in_out? 'IN': 'OUT'}
+                {record.in_out ? 'IN' : 'OUT'}
               </Space>
             )}
           />

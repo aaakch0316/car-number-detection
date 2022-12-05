@@ -1,12 +1,12 @@
 import styles from './App.module.scss'
-import VideoBox from "./routes/videoBox.js"
-import Notification from "./routes/notification.js"
+import VideoBox from "./components/templates/videoBox.js"
+import Notification from "./components/templates/notification.js"
 
 function App() {
   return (
     <div className={styles.title}>
       <div>
-        <h1>aaaaaaaaaaaaaaaaaaaaa</h1>
+        <h1>CCTV + 알림페이지</h1>
       </div>
       <VideoBox />
       <VideoBox />
@@ -20,7 +20,6 @@ function App() {
       <Notification />
       <Notification />
       <Notification />
-
     </div>
   );
 }
