@@ -17,7 +17,7 @@ const LNB = () => {
         <Link to=''>Valet Info</Link>
       </div> */}
       <hr className={styles.line} />
-      <Link to='/worker-monitoring' style={{ textDecoration: 'none' }}>
+      <Link to='/' style={{ textDecoration: 'none' }}>
         <div className={styles.item}>Worker Monitering</div>
       </Link>
     </div>
