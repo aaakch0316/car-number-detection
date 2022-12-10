@@ -43,7 +43,7 @@ const Login = () => {
             </div>
             <div className={styles.control}>
               <label>PW</label>
-              <input type="text" value={enteredPw} onChange={pwChangeHandler} />
+              <input type='password' value={enteredPw} onChange={pwChangeHandler} />
             </div>
           </div>
           <div className={styles.actions}>

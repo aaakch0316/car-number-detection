@@ -7,10 +7,15 @@ import {
 } from "react-router-dom";
 import App from './App';
 import Customer from './routes/customer';
+// import CustomerForm from './routes/CustomerForm';
+import CustomerTest from './routes/CustomerTest';
 import Login from './routes/login';
 import Signup from './routes/signup';
 import VisitorAccess from './routes/visitor-access';
 import WorkerMonitor from './routes/worker-monitoring';
+import Analysis from './routes/analysis'
+import Employees from './routes/employees'
+import Monitering from './routes/Monitering'
 // import { Link } from "react-router-dom";
 
 
@@ -33,7 +38,12 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="customer" element={<Customer />} />
+      <Route path="CustomerTest" element={<CustomerTest />} />
+      {/* <Route path="CustomerForm" element={<CustomerForm />} /> */}
       <Route path="visitor-access" element={<VisitorAccess />} />
+      <Route path="analysis" element={<Analysis />} />
+      <Route path="employees" element={<Employees />} />
+      <Route path="Monitering" element={<Monitering />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="worker-monitoring" element={<WorkerMonitor />} />
