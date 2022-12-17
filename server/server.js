@@ -60,7 +60,7 @@ app.use("/ping", async (req, res) => {
   res.json({ response: "pong" });
 });
 
-app.use("/test", async (req, res) => {
+app.use("/dbtest", async (req, res) => {
   const connectDB = require('./middleware/mysql.js')
   console.log('API : db-test')
   connectDB.query('SELECT * from customer', (error, rows) => {
@@ -71,6 +71,7 @@ app.use("/test", async (req, res) => {
 })
 
 app.use("/car", require("./router/car"))
+app.use("/test/model", require("./router/model"))
 // app.use("/user", require("./router/user"));
 // app.use("/customer", require("./router/customer"));
 // app.use("/visitor", require("./router/visitor"));
