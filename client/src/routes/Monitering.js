@@ -8,22 +8,14 @@ const Monitering = () => {
     <Header>
       <div>
         <div className={styles.title}>
-          <h1>CCTV + 알림페이지</h1>
+          <h2>CCTV + 알림페이지</h2>
         </div>
         <VideoBox />
-        <VideoBox />
-        <VideoBox />
-        <VideoBox />
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
-        <Notification />
         <Notification />
       </div>
+
     </Header>
+
   );
 }
 

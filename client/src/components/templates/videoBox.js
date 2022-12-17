@@ -1,13 +1,29 @@
 import React from 'react'
 import styles from './videoBox.module.scss';
+import ReactPlayer from "react-player";
 
-const VideoBox = () => {
+
+const VideoBox = (props) => {
     return (
-
         <div className={styles.container}>
             <div>
-                <h1>CCTV_No</h1>
-                <img src="http://www.farmsale.kr/wp-content/uploads/2015/01/62258_jo1.jpg" alt="test" width={400} height={400} />
+                <header>
+                    <h2>CCTV_No</h2>
+                </header>
+                <body>
+                    <React.Fragment>
+                        <ReactPlayer
+                            url={"https://www.youtube.com/watch?v=akrF3bUnThk"}
+                            width="100%"
+                            heigth="100%"
+                            playing={true}
+                            muted={true}
+                            controls={true}
+                        />
+                    </React.Fragment>
+                </body>
+
+
             </div>
         </div>
 

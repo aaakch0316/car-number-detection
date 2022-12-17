@@ -1,3 +1,4 @@
+
 import Header from "../components/templates/Header";
 import { Space, Table, Tag } from 'antd';
 
@@ -45,7 +46,7 @@ const Employees = () => {
     return (
         <Header>
             <main style={{ padding: "1rem 3rem" }}>
-                <h2>Employees</h2>
+                <h2>Visitor Access</h2>
                 <Table dataSource={data}>
                     <ColumnGroup title="Name">
                         <Column title="First Name" dataIndex="firstName" key="firstName" />

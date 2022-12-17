@@ -5,10 +5,10 @@ const Notification = () => {
     return (
         <div className={styles.container}>
             <div>
-                <h1>notification</h1>
-                <h1>진입차량: 13123</h1>
+                <p>notification</p>
+                <p>진입차량: 13123</p>
             </div>
-        </div>
+        </div >
     )
 }
 

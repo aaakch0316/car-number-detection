@@ -28,9 +28,9 @@
     align-items: center;
     padding-left: 20px;
     background-color: #f1f2f4;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
 }
-
 
 .controls {
     display: flex;
@@ -57,4 +57,55 @@
 
 .actions {
     text-align: left;
+    border-radius: 6px;
+}
+
+.invalid label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.invalid input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgb(255, 0, 0);
+    width: 20rem;
+    max-width: 100%;
+    background-color: rgba(250, 208, 208, 0.904);
+}
+
+.invalid input:hover {
+    background-color: #af96eb;
+    border-color: #af96eb;
+}
+
+.invalid input:focus {
+    background-color: #af96eb;
+    border-color: #af96eb;
+}
+
+.caution {
+    color: red;
+}
+
+.actions button {
+    background-color: darkblue;
+    color: white;
+    border-radius: 6px;
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.actions button:disabled,
+.actions button:disabled:hover,
+.actions button:disabled:active {
+    background-color: gray;
+    color: white;
+    border-radius: 6px;
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
 }

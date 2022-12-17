@@ -1,8 +1,9 @@
+import Login from './routes/login'
 
 function App() {
   return (
     <div>
-      dwdwdw
+      <Login />
     </div>
   );
 }

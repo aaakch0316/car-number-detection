@@ -1,5 +1,6 @@
 import Header from "../components/templates/Header";
 import { Space, Table, Tag } from 'antd';
+import dummy from "./dummyrecodes.json"
 
 const data = [
   {
@@ -40,20 +41,25 @@ const data = [
   },
 ];
 
+const dummyData = dummy
+
 export default function VisitorAccess() {
   const { Column, ColumnGroup } = Table;
   return (
     <Header>
       <main style={{ padding: "1rem 3rem" }}>
         <h2>Visitor Access</h2>
-        <Table dataSource={data}>
-          <ColumnGroup title="Name">
-            <Column title="First Name" dataIndex="firstName" key="firstName" />
-            <Column title="Last Name" dataIndex="lastName" key="lastName" />
+        <Table dataSource={dummyData}>
+          {/* <ColumnGroup title="Name"> */}
+          <Column title="id" dataIndex="id" key="id" />
+          <Column title="date" dataIndex="date" key="date" />
+          <Column title="car_number" dataIndex="car_number" key="car_number" />
+          <Column title="age" dataIndex="age" key="age" />
+          {/* <Column title="Last Name" dataIndex="lastName" key="lastName" />
           </ColumnGroup>
           <Column title="Age" dataIndex="age" key="age" />
-          <Column title="Address" dataIndex="address" key="address" />
-          <Column
+          <Column title="Address" dataIndex="address" key="address" /> */}
+          {/* <Column
             title="Tags"
             dataIndex="tags"
             key="tags"
@@ -75,7 +81,7 @@ export default function VisitorAccess() {
                 {record.in_out ? 'IN' : 'OUT'}
               </Space>
             )}
-          />
+          /> */}
         </Table>
       </main>
     </Header>
