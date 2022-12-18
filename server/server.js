@@ -24,9 +24,12 @@ app.use(function (req, res, next) {
   // Website you wish to allow to connect
   // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3005');
   console.log('req.headers.origin')
-  console.log(req.headers.origin)
   const allowedOrigins = ["*"];
-  const origin = req.headers.origin;
+  const origin = req.get('origin')
+  const host = req.get('host')
+  // console.log('origin', origin)
+  // console.log('host',host)
+  // req.headers["x-forwarded-for"] || req.connection.remoteAddress
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
@@ -72,8 +75,8 @@ app.use("/dbtest", async (req, res) => {
 
 app.use("/car", require("./router/car"))
 app.use("/test/model", require("./router/model"))
+app.use("/customer", require("./router/customer"));
 // app.use("/user", require("./router/user"));
-// app.use("/customer", require("./router/customer"));
 // app.use("/visitor", require("./router/visitor"));
 // app.use("/car", require("./router/car"));
 // app.use("/valet", require("./router/valet"));
