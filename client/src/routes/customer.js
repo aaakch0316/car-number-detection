@@ -1,6 +1,7 @@
 import Header from "../components/templates/Header";
 import { Space, Table, Tag, Button } from 'antd';
 import { useState, useEffect } from "react";
+import axios from 'axios'
 
 const dummyData = [
 
@@ -44,67 +45,94 @@ const dummyData = [
 
 export default function Customer() {
   const { Column, ColumnGroup } = Table;
-  const [data, setData] = useState([])
+  const [data, setData] = useState()
+  
+  const getCustomer = async() => {
+    const res = await axios.get('http://localhost:3005/customer')
+    console.log(res.data.data)
+    setData(res.data.data)
+  }
 
   useEffect(() => {
-    // db FETCH
-    setData(dummyData)
+
+    getCustomer()
   }, [])
 
 
-  const handlingCreateData = (customer) => {
-    console.log(customer)
+  const handlingCreateData = async () => {
+    try {
+      if ( name && carNumber && type ) {
+        console.log(name, carNumber ,type)
+        const res = await axios.post('http://localhost:3005/customer', {
+            name: name,
+            type: type,
+            carNumber: carNumber
+        })
+        getCustomer()
+      }
+    } catch(e) {console.log(e.message)}
 
-    const update = [...data, customer]
-    setData(update)
   }
 
-  const handlingDeleteDate = (key) => {
-    console.log(key)
+  const handlingDeleteDate = async (row) => {
+    try {
 
-    const update = data.filter((ob) => ob.key !== key)
-    setData(update)
+        const res = await axios.get(`http://localhost:3005/customer/delete/${row.id}`)
+        console.log(res)
+        getCustomer()
+    } catch(e) {console.log(e.message)}
+
+
+    // const update = data.filter((ob) => ob.key !== key)
+    // setData(update)
   }
 
-  const [inputFirstName, setinputFirstName] = useState('');
-  const [inputLastName, setinputLastName] = useState('');
+  const [name, setName] = useState('');
+  const [carNumber, setCarNumber] = useState('');
+  const [type, setType] = useState('');
 
-  const firstnameHadler = (event) => {
-    setinputFirstName(event.target.value)
+  const handlingName = (event) => {
+    setName(event.target.value)
   }
-  const lastnameHadler = (event) => {
-    setinputLastName(event.target.value)
+  const handlingCarNumber = (event) => {
+    setCarNumber(event.target.value)
   }
-
+  const handlingType = (event) => {
+    setType(event.target.value)
+  }
   return (
     <Header>
       <main style={{ padding: "1rem 3rem" }}>
         <h2>Customer</h2>
-        <form onSubmit={handlingCreateData}>
-          <label htmlFor="fristname">fristname</label>
-          <input
-            id="fristname" type="text" value={inputFirstName} onChange={firstnameHadler}
-          /><br />
-          <label htmlFor="lastname">lastname</label>
-          <input
-            id="lastname" type="text" value={inputLastName} onChange={lastnameHadler}
-          />
-        </form>
+        <div style={{
+          display: 'flex',
+          // flexDirection: 'column',
+          justifyContent:'space-between',
+          width: '60%',
+          margin: '10px'
+        }}>
+          <div>
+            <label htmlFor="name">name</label>
+            <input
+              id="name" type="text" value={name} onChange={handlingName}
+              />
+          </div>
+          <div>
+            <label htmlFor="carNumber">carNumber</label>
+            <input
+              id="carNumber" type="text" value={carNumber} onChange={handlingCarNumber}
+              />
+          </div>
+          <div>
+            <label htmlFor="type">type</label>
+            <input
+              id="type" type="text" value={type} onChange={handlingType}
+              />
+          </div>
+        </div>
 
         <Button
-          onClick={() => handlingCreateData(
-            {
-              key: Math.random().toString(),
-              firstName: inputFirstName,
-              lastName: inputLastName,
-              age: 32,
-              address: 'Sidney No. 1 Lake Park',
-              tags: [inputLastName],
-              in_out: 1
-            },
-            setinputFirstName(''),
-            setinputLastName('')
-          )}
+          onClick={() => handlingCreateData()}
           type="primary"
           style={{
             marginBottom: 16,
@@ -113,40 +141,15 @@ export default function Customer() {
           Add a row
         </Button>
         <Table dataSource={data}>
-          <ColumnGroup title="Name">
-            <Column title="First Name" dataIndex="firstName" key="firstName" />
-            <Column title="Last Name" dataIndex="lastName" key="lastName" />
-          </ColumnGroup>
-          <Column title="Age" dataIndex="age" key="age" />
-          <Column title="Address" dataIndex="address" key="address" />
-          <Column
-            title="Tags"
-            dataIndex="tags"
-            key="tags"
-            render={(tags, _id) => (
-              <div>
-                {tags.map((tag) => (
-                  <Tag color="blue" key={tag}>
-                    {tag}
-                  </Tag>
-                ))}
-              </div>
-            )}
-          />
-          <Column
-            title="Action"
-            key="action"
-            render={(_, record) => (
-              <Space size="middle">
-                {record.in_out ? 'IN' : 'OUT'}
-              </Space>
-            )}
-          />
+          <Column title="ID" dataIndex="id" key="id" />
+          <Column title="Name" dataIndex="name" key="id" />
+          <Column title="Car_Num" dataIndex="car_number" key="id" />
+          <Column title="Type" dataIndex="type" key="id" />
           <Column
             title='Delete'
             key='action'
-            render={(tags, _id) => (
-              <div onClick={() => handlingDeleteDate(_id.key)}>
+            render={(row) => (
+              <div onClick={() => handlingDeleteDate(row)}>
                 <Space size="middle">
                   Delete
                 </Space>
