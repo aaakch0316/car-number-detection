@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './login.module.scss';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 const Login = (props) => {
   const [enteredID, setEnteredID] = useState("")
@@ -15,8 +16,10 @@ const Login = (props) => {
   const enteredIDIsValid = enteredID.trim() === 'admin'
   const enteredPWIsValid = enteredPW.trim() === '1234'
 
-  const idIsToched = !enteredIDIsValid && enteredIDIsToched
-  const pwIsToched = !enteredPWIsValid && enteredPWIsToched
+  // const idIsToched = !enteredIDIsValid && enteredIDIsToched
+  // const pwIsToched = !enteredPWIsValid && enteredPWIsToched
+  const idIsToched = false
+  const pwIsToched = false
 
   useEffect(() => {
     if (enteredIDIsValid && enteredPWIsValid) {
@@ -73,8 +76,18 @@ const Login = (props) => {
     navigate("/signup");
   };
 
-  const navigateToMonitering = () => {
-    navigate("/Monitering");
+  const navigateToMonitering = async () => {
+    try {
+
+      const res = await axios.post('http://localhost:3005/auth/login', {
+          email: enteredID,
+          pw: enteredPW
+      })
+      console.log(res)
+      if (res.data.success) {
+        navigate("/Monitering");
+      }
+    } catch(e)  {console.log(e.message)}
   };
 
   return (
@@ -120,7 +133,7 @@ const Login = (props) => {
             <div className={styles.actions}>
               <button
                 onClick={navigateToMonitering}
-                disabled={!formIsValid}
+                // disabled={!formIsValid}
               >로그인
               </button>
               <button onClick={navigateTosignup}>

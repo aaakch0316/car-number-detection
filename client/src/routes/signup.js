@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './signup.module.scss';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -112,7 +113,15 @@ const Login = () => {
   const InputName = nameIsToched ? styles.invalid : styles.control
 
 
-  const navigateToHome = () => {
+  const navigateToHome = async () => {
+    console.log(enteredID, enteredPW, enteredName)
+    try {
+      const res = await axios.post('http://localhost:3005/auth/register', {
+          email: enteredID,
+          name: enteredName,
+          pw: enteredPW
+      })
+    } catch(e) {console.log(e.message)}
     navigate("/");
   };
 

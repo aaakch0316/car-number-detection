@@ -13,7 +13,6 @@ router.post("/login", async function (req, res) {
     console.log('/login')
     const {email, pw} = req.body
     if (!( email && pw)) {return res.json({success:false, message: '빈값을 채워주세요.'})}
-
     connectDB.query(`SELECT * from user WHERE email='${email}'`, (error, row) => {
       if (error) return res.json({success: false, message: error});
       if (!row[0] || !bcrypt.compareSync(pw, row[0].pw)) {

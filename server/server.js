@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === "production") {
 } else if (process.env.NODE_ENV === "local") {
     envFile = ".env.local"
 } 
-require("dotenv").config({ path: envFile });
+require("dotenv").config({ path: '.env.local' });
 
 
 const express = require("express");
