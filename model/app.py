@@ -26,4 +26,4 @@ def modeling():
   }
 
 if __name__ == '__main__':# 다른데서 부르면 실행하지 마라는 뜻이다.
-    app.run(host='0.0.0.0', port=8000)
+    app.run()
