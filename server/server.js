@@ -73,12 +73,12 @@ app.use("/dbtest", async (req, res) => {
   });
 })
 
-app.use("/car", require("./router/car"))
-app.use("/test/model", require("./router/model"))
+app.use("/car", require("./router/car"));
+app.use("/test/model", require("./router/model"));
 app.use("/customer", require("./router/customer"));
+app.use("/auth", require("./router/auth"));
 // app.use("/user", require("./router/user"));
 // app.use("/visitor", require("./router/visitor"));
-// app.use("/car", require("./router/car"));
 // app.use("/valet", require("./router/valet"));
 
 app.get("/", (req, res) => {
