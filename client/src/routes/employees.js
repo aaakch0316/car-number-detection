@@ -35,7 +35,7 @@ const data = [
         lastName: 'Black',
         age: 32,
         address: 'Sidney No. 1 Lake Park',
-        tags: ['none', 'teacher'],
+        'tags': ['none', 'teacher'],
         in_out: 1
     },
 ];

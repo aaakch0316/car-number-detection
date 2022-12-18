@@ -1,28 +1,43 @@
 import React from 'react'
-import dummy from "./dummyrecodes.json"
+import dummy from "./dummyinout.json"
 
 const DUMMY = dummy;
 const Test = () => {
     const customerList = DUMMY.map((props) => (
-        <li>
+        <div>
             id={props.id}
             name={props.name}
             car_number={props.car_number}
             age={props.age}
-            date={props.date}
-        </li>
+            date={props.month}
+        </div>
     ))
-    console.log(customerList)
-    // const month = props.date.toLocaleString('en-US', { month: "long" });
 
+    const chartWeekday = [
+        { label: '1', value: 0 },
+        { label: '2', value: 0 },
+        { label: '3', value: 0 },
+        { label: '4', value: 0 },
+        { label: '5', value: 0 },
+        { label: '6', value: 0 },
+        { label: '0', value: 0 },
+    ];
+
+    for (const num of DUMMY) {
+        const addWeekday = num.weekday;
+        chartWeekday[addWeekday].value += 1;
+    }
+
+    console.log(chartWeekday)
 
     return (
-        <section>
-            <ul>
-                {customerList}
-            </ul>
-        </section>
+        <div>
+            {chartWeekday.map(dataPoint => dataPoint.value)}
+            {/* const totalMaximum = Math.max(...dataPointValues) */}
+        </div>
     );
 }
 
 export default Test
+
+

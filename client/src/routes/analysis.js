@@ -7,6 +7,9 @@ const Analysis = () => {
         <Header>
             <div>
                 <GraphBox />
+                <GraphBox />
+                <GraphBox />
+                <GraphBox />
             </div>
         </Header>
     )

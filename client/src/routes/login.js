@@ -47,7 +47,7 @@ const Login = (props) => {
     event.preventDefault();
 
     setEnteredIDIsToched(true)
-    // setEnteredPWIsToched(true)
+    setEnteredPWIsToched(true)
 
     if (!enteredIDIsValid) {
       return

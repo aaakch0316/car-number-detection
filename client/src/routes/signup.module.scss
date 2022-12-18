@@ -2,12 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 .aaa {
     width: 20rem;
     margin: 0 auto;
+}
+
+.title {
+    font-size: 50px;
+    color: #4c82a8;
 }
 
 .controls {
@@ -35,4 +40,58 @@
 
 .actions {
     text-align: left;
+}
+
+.invalid label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.invalid input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgb(255, 0, 0);
+    width: 20rem;
+    max-width: 100%;
+    background-color: rgba(250, 208, 208, 0.904);
+}
+
+.invalid input:hover {
+    background-color: #af96eb;
+    border-color: #af96eb;
+}
+
+.invalid input:focus {
+    background-color: #af96eb;
+    border-color: #af96eb;
+}
+
+.caution {
+    color: red;
+}
+
+.actions button {
+    background-color: darkblue;
+    color: white;
+    border-radius: 6px;
+    width: 20rem;
+    max-width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.actions button:disabled,
+.actions button:disabled:hover,
+.actions button:disabled:active {
+    background-color: gray;
+    color: white;
+    border-radius: 6px;
+    width: 25rem;
+    max-width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 20px;
 }

@@ -1,45 +1,6 @@
 import Header from "../components/templates/Header";
 import { Space, Table, Tag } from 'antd';
-import dummy from "./dummyrecodes.json"
-
-const data = [
-  {
-    key: '1',
-    firstName: 'John',
-    lastName: 'Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['VIP', 'developer'],
-    in_out: 1
-  },
-  {
-    key: '2',
-    firstName: 'John',
-    lastName: 'Brown',
-    age: 28,
-    address: 'New York No. 1 Lake Park',
-    tags: ['VIP', 'employee'],
-    in_out: 1
-  },
-  {
-    key: '3',
-    firstName: 'Jim',
-    lastName: 'Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['VVIP', 'ower'],
-    in_out: 0
-  },
-  {
-    key: '4',
-    firstName: 'Joe',
-    lastName: 'Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['none', 'teacher'],
-    in_out: 1
-  },
-];
+import dummy from "./dummyinout.json"
 
 const dummyData = dummy
 
@@ -50,40 +11,36 @@ export default function VisitorAccess() {
       <main style={{ padding: "1rem 3rem" }}>
         <h2>Visitor Access</h2>
         <Table dataSource={dummyData}>
-          {/* <ColumnGroup title="Name"> */}
           <Column title="id" dataIndex="id" key="id" />
-          <Column title="date" dataIndex="date" key="date" />
-          <Column title="car_number" dataIndex="car_number" key="car_number" />
-          <Column title="age" dataIndex="age" key="age" />
-          {/* <Column title="Last Name" dataIndex="lastName" key="lastName" />
+          <ColumnGroup title="date">
+            <Column title="year" dataIndex="year" key="year" />
+            <Column title="month" dataIndex="month" key="month" />
+            <Column title="day" dataIndex="day" key="day" />
+            <Column title="weekday" dataIndex="weekday" key="weekday" />
           </ColumnGroup>
-          <Column title="Age" dataIndex="age" key="age" />
-          <Column title="Address" dataIndex="address" key="address" /> */}
-          {/* <Column
-            title="Tags"
-            dataIndex="tags"
-            key="tags"
-            render={(tags) => (
-              <>
-                {tags.map((tag) => (
-                  <Tag color="blue" key={tag}>
-                    {tag}
-                  </Tag>
-                ))}
-              </>
+          <Column title="car_number" dataIndex="car_number" key="car_number" />
+          <Column title="username" dataIndex="username" key="username" />
+          <Column
+            title="grade"
+            dataIndex="grade"
+            key="id"
+            render={(grade) => (
+              <Tag color="blue" key={grade}>
+                {grade}
+              </Tag>
             )}
           />
           <Column
             title="Action"
-            key="action"
+            key="Delete"
             render={(_, record) => (
               <Space size="middle">
                 {record.in_out ? 'IN' : 'OUT'}
               </Space>
             )}
-          /> */}
+          />
         </Table>
       </main>
-    </Header>
+    </Header >
   );
 }
