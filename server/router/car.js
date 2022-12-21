@@ -4,24 +4,24 @@ const connectDB = require('../middleware/mysql.js');
 
 router.get("/", async function (req, res) {
   console.log("/cars", req.query);
-  const {aaa} = req.query
+  const { aaa } = req.query
   try {
-  connectDB.query('SELECT * from customer', (error, rows) => {
-    if (error) return res.json({success: false, message: error});
-    return res.json({success: true, data: rows})
-  });
-  } catch (e) {return res.json({success: false})}
+    connectDB.query('SELECT * from customer', (error, rows) => {
+      if (error) return res.json({ success: false, message: error });
+      return res.json({ success: true, data: rows })
+    });
+  } catch (e) { return res.json({ success: false }) }
 })
 
 router.get("/:carId", async function (req, res) {
   console.log("/car", req.query);
-  const {carId} = req.params
+  const { carId } = req.params
   try {
-  connectDB.query(`SELECT * from customer WHERE id=${carId}`, (error, rows) => {
-    if (error) return res.json({success: false, message: error});
-    return res.json({success: true, data: rows})
-  });
-  } catch (e) {return res.json({success: false})}
+    connectDB.query(`SELECT * from customer WHERE id=${carId}`, (error, rows) => {
+      if (error) return res.json({ success: false, message: error });
+      return res.json({ success: true, data: rows })
+    });
+  } catch (e) { return res.json({ success: false }) }
 })
 
 // create

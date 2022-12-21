@@ -5,8 +5,9 @@ const Notification = () => {
     return (
         <div className={styles.container}>
             <div>
-                <p>notification</p>
-                <p>진입차량: 13123</p>
+                <span>notification</span><br />
+                <span>진입차량: 64고 8564</span><br />
+                <span>등급: none</span>
             </div>
         </div >
     )

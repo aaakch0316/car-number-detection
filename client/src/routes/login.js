@@ -4,34 +4,31 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 const Login = (props) => {
-  const [enteredID, setEnteredID] = useState("")
+  const [enteredEmail, setEnteredEmail] = useState("")
   const [enteredPW, setEnteredPW] = useState("")
 
-  const [enteredIDIsToched, setEnteredIDIsToched] = useState(false)
+  const [enteredEmailIsToched, setEnteredEmailIsToched] = useState(false)
   const [enteredPWIsToched, setEnteredPWIsToched] = useState(false)
   const navigate = useNavigate();
 
   const [formIsValid, setFormIsValid] = useState(false)
 
-  const enteredIDIsValid = enteredID.trim() === 'admin'
-  const enteredPWIsValid = enteredPW.trim() === '1234'
+  const enteredEmailIsValid = enteredEmail.trim() !== '' && enteredEmail.includes('@')
+  const enteredPWIsValid = enteredPW.trim() !== ''
 
-  // const idIsToched = !enteredIDIsValid && enteredIDIsToched
-  // const pwIsToched = !enteredPWIsValid && enteredPWIsToched
-  const idIsToched = false
-  const pwIsToched = false
+  const idIsToched = !enteredEmailIsValid && enteredEmailIsToched
+  const pwIsToched = !enteredPWIsValid && enteredPWIsToched
 
   useEffect(() => {
-    if (enteredIDIsValid && enteredPWIsValid) {
+    if (enteredEmailIsValid && enteredPWIsValid) {
       setFormIsValid(true)
     } else {
       setFormIsValid(false)
     }
-
-  }, [enteredIDIsValid, enteredPWIsValid])
+  }, [enteredEmailIsValid, enteredPWIsValid])
 
   const idChangeHandler = (event) => {
-    setEnteredID(event.target.value);
+    setEnteredEmail(event.target.value);
   };
 
   const pwChangeHandler = (event) => {
@@ -39,7 +36,7 @@ const Login = (props) => {
   };
 
   const idInputBlurHandler = (event) => {
-    setEnteredIDIsToched(true)
+    setEnteredEmailIsToched(true)
   }
 
   const pwInputBlurHandler = (event) => {
@@ -49,10 +46,10 @@ const Login = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    setEnteredIDIsToched(true)
+    setEnteredEmailIsToched(true)
     setEnteredPWIsToched(true)
 
-    if (!enteredIDIsValid) {
+    if (!enteredEmailIsValid) {
       return
     }
 
@@ -60,16 +57,16 @@ const Login = (props) => {
       return
     }
 
-    console.log(enteredID, enteredPW)
+    console.log(enteredEmail, enteredPW)
 
-    setEnteredID("")
+    setEnteredEmail("")
     setEnteredPW("")
 
-    setEnteredIDIsToched(false)
+    setEnteredEmailIsToched(false)
     setEnteredPWIsToched(false)
   };
 
-  const InputID = idIsToched ? styles.invalid : styles.control
+  const InputEmail = idIsToched ? styles.invalid : styles.control
   const InputPW = pwIsToched ? styles.invalid : styles.control
 
   const navigateTosignup = () => {
@@ -78,16 +75,15 @@ const Login = (props) => {
 
   const navigateToMonitering = async () => {
     try {
-
       const res = await axios.post('http://localhost:3005/auth/login', {
-          email: enteredID,
-          pw: enteredPW
+        email: enteredEmail,
+        pw: enteredPW
       })
       console.log(res)
       if (res.data.success) {
         navigate("/Monitering");
       }
-    } catch(e)  {console.log(e.message)}
+    } catch (e) { console.log(e.message) }
   };
 
   return (
@@ -103,22 +99,24 @@ const Login = (props) => {
 
             <div className={styles.controls}>
 
-              <div className={InputID}>
-                <label htmlFor='id'>ID</label>
+              <div className={InputEmail}>
+                <label htmlFor='id'>Email</label>
                 <input
+                  placeholder='someone@example.com'
                   type="text"
                   id='id'
                   onChange={idChangeHandler}
                   onBlur={idInputBlurHandler}
-                  value={enteredID}
+                  value={enteredEmail}
                 />
               </div>
-              {idIsToched && (<p className={styles.caution}>아이디를 입력하세요</p>)}
+              {idIsToched && (<p className={styles.caution}>이메일을 입력하세요</p>)}
 
 
               <div className={InputPW}>
                 <label htmlFor='pw'>PW</label>
                 <input
+                  placeholder='********'
                   type='password'
                   pw='pw'
                   onChange={pwChangeHandler}
@@ -133,7 +131,7 @@ const Login = (props) => {
             <div className={styles.actions}>
               <button
                 onClick={navigateToMonitering}
-                // disabled={!formIsValid}
+                disabled={!formIsValid}
               >로그인
               </button>
               <button onClick={navigateTosignup}>

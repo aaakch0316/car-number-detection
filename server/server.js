@@ -4,10 +4,10 @@
 let envFile;
 
 if (process.env.NODE_ENV === "production") {
-    envFile = ".env.production"
+  envFile = ".env.production"
 } else if (process.env.NODE_ENV === "local") {
-    envFile = ".env.local"
-} 
+  envFile = ".env.local"
+}
 require("dotenv").config({ path: '.env.local' });
 
 
@@ -77,8 +77,8 @@ app.use("/car", require("./router/car"));
 app.use("/test/model", require("./router/model"));
 app.use("/customer", require("./router/customer"));
 app.use("/auth", require("./router/auth"));
-// app.use("/user", require("./router/user"));
-// app.use("/visitor", require("./router/visitor"));
+app.use("/user", require("./router/user"));
+app.use("/visitor", require("./router/visitor"));
 // app.use("/valet", require("./router/valet"));
 
 app.get("/", (req, res) => {

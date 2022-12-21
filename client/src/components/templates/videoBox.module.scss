@@ -1,8 +1,8 @@
 .container {
   display: flex;
   float: left;
-  height: 45%;
-  width: 40%;
+  height: 50vh;
+  width: 60vh;
   justify-content: center;
   // align-items: center;
   border: 1px solid #ccc;
@@ -10,4 +10,32 @@
   margin-right: 20px;
   margin-top: 20px;
   background-color: ghostwhite;
+}
+
+.image {
+  width: 60vh;
+  height: 40vh;
+}
+.title {
+  display: flex;
+  float: left;
+  justify-content: right;
+  align-items: right;
+
+  -webkit-margin-start: 20px;
+  margin-inline-start: 20px;
+}
+
+.submit {
+  display: flex;
+  float: right;
+  margin-top: 20px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: gray;
+  color: white;
+
+  -webkit-margin-end: 40px;
+  margin-inline-end: 40px;
 }

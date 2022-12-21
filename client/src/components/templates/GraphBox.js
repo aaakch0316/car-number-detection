@@ -3,38 +3,39 @@ import styles from './GraphBox.module.scss';
 import { ResponsiveBar } from '@nivo/bar';
 import dummy from "../../routes/dummyinout.json"
 
+const GraphBox = (props) => {
+    // const wdata = props.wdata
+    // console.log(wdata)
+    // const wdataValues = props.wdata.map(dataPoint => dataPoint.value)
+    // console.log(wdataValues)
+    // console.log(props.label)
 
-const GraphBox = () => {
     const handle = {
-        barClick: (data: any) => {
+        barClick: (data) => {
             console.log(data);
         },
 
-        legendClick: (data: any) => {
+        legendClick: (data) => {
             console.log(data);
         },
     };
 
     return (
-        // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
         <div className={styles.container}>
+
             <ResponsiveBar
                 /**
                  * chart에 사용될 데이터
                  */
-                data={[
-                    { bottle: '365ml', cola: 1200, cidar: 1000, fanta: 1100 },
-                    { bottle: '500ml', cola: 2200, cidar: 2000, fanta: 2100 },
-                    { bottle: '1000ml', cola: 3200, cidar: 3000, fanta: 3100 },
-                ]}
+                data={props.wdata}
                 /**
                  * chart에 보여질 데이터 key (측정되는 값)
                  */
-                keys={['cola', 'cidar', 'fanta']}
+                keys={['value']}
                 /**
                  * keys들을 그룹화하는 index key (분류하는 값)
                  */
-                indexBy="bottle"
+                indexBy="label"
                 /**
                  * chart margin
                  */
@@ -100,7 +101,7 @@ const GraphBox = () => {
                     tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
                     tickPadding: 5, // tick padding
                     tickRotation: 0, // tick 기울기
-                    legend: 'bottle', // bottom 글씨
+                    legend: 'weekly', // bottom 글씨
                     legendPosition: 'middle', // 글씨 위치
                     legendOffset: 40, // 글씨와 chart간 간격
                 }}
@@ -111,7 +112,7 @@ const GraphBox = () => {
                     tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
                     tickPadding: 5, // tick padding
                     tickRotation: 0, // tick 기울기
-                    legend: 'price', // left 글씨
+                    legend: 'count', // left 글씨
                     legendPosition: 'middle', // 글씨 위치
                     legendOffset: -60, // 글씨와 chart간 간격
                 }}
