@@ -1,27 +1,37 @@
-
 .container {
   width: 100vw;
   height: 56px;
   background-color: #f8f9fa;
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
   gap: 50px;
   // margin-right: 32px;
   z-index: 300;
   position: absolute;
   top: 0;
   // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   // padding-right: 200px;
 
-  .menu{
+  .menu {
     display: flex;
     align-items: center;
   }
-  .item{
-    margin-left: 130px;
-    margin-right: -70px;
+  .item {
+    // margin-left: 130px;
+    margin-right: 0px;
+    height: 56px;
+    width: 242px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    // top: $gnbHeight;
+    left: 0;
+    top: 0;
+    background-color: #2b2f5a;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.08);
   }
   .logout {
     margin-right: 50px;

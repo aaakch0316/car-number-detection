@@ -86,12 +86,17 @@ export default function Customer() {
           display: 'flex',
           // flexDirection: 'column',
           justifyContent: 'space-between',
-          width: '60%',
-          margin: '10px'
+          width: '100%',
+          margin: '10px',
+          border: '3px solid #fafafa',
+          marginTop: '3px'
         }}>
           <div>
             <label htmlFor="name">name: </label>
-            <input
+            <input style={{
+              backGroundColor: "#f1f2f4"
+
+            }}
               id="name" type="text" value={name} onChange={handlingName}
             />
           </div>

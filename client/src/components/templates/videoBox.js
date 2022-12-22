@@ -10,13 +10,18 @@ const VideoBox = ({ children }) => {
     // console.log(props.v1.map(v1 => v1.value))
     // console.log({ dataPointValues })
 
+    const submitHandler = (event) => {
+        // console.log('test')
+        event.preventDefault();
+    }
+
     return (
         <div className={styles.container}>
             <div>
                 <header>
                     <h2 className={styles.title}>CCTV_No</h2>
                     <button
-
+                        onClick={submitHandler}
                         className={styles.submit}
                     >submit</button>
                 </header>

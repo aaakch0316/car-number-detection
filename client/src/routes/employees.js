@@ -17,7 +17,7 @@ const data = [
 ];
 
 const Employees = () => {
-    const { Column, ColumnGroup } = Table;
+    const { Column } = Table;
     const [data, setData] = useState()
 
     const getCustomer = async () => {

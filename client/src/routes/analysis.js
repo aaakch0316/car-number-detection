@@ -1,42 +1,53 @@
 import React from 'react'
-import dummy from "./dummyinout.json"
 import Header from "../components/templates/Header";
 import GraphBox from "../components/templates/GraphBox"
 
-const DUMMY = dummy;
+import { useState, useEffect } from "react";
+import axios from 'axios'
+
 const Analysis = () => {
-    const labels = [{
-        id: 0,
-        x: 'xsx'
-    }]
+    const [data, setData] = useState([])
 
-
-    const chartWeekday = [
-        { label: '1', value: 0 },
-        { label: '2', value: 0 },
-        { label: '3', value: 0 },
-        { label: '4', value: 0 },
-        { label: '5', value: 0 },
-        { label: '6', value: 0 },
-        { label: '0', value: 0 },
-    ];
-
-    for (const num of DUMMY) {
-        const addWeekday = num.weekday;
-        chartWeekday[addWeekday].value += 1;
+    const getCustomer = async () => {
+        const res = await axios.get('http://localhost:3005/visitor')
+        console.log(res.data.data)
+        setData(res.data.data)
     }
 
-    // console.log(chartWeekday)
+    useEffect(() => {
+        getCustomer()
+    }, [])
+
+    const chartWeekday = [
+        { label: '일', weekday: 0 },
+        { label: '월', weekday: 0 },
+        { label: '화', weekday: 0 },
+        { label: '수', weekday: 0 },
+        { label: '목', weekday: 0 },
+        { label: '금', weekday: 0 },
+        { label: '토', weekday: 0 },
+    ];
+
+    for (const num of data) {
+        // console.log(num)
+        const addWeekday = num.weekday;
+        console.log(addWeekday)
+        chartWeekday[addWeekday].weekday += 1;
+    }
 
     return (
         <Header>
-            <div>
-                <GraphBox wdata={chartWeekday} label={labels} />
-                <GraphBox wdata={chartWeekday} />
-                {/* <GraphBox />
+            <main style={{ padding: "1rem 3rem" }}>
+                <h2>Analysis</h2>
+                <div>
+                    <GraphBox wdata={chartWeekday} col1={"label"} />
+
+                    {/* <GraphBox />
+                <GraphBox />
                 <GraphBox />
                 <GraphBox /> */}
-            </div>
+                </div>
+            </main>
         </Header>
     )
 }
