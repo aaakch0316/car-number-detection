@@ -36,7 +36,7 @@ router.post("/register", async function (req, res) {
     const { name, email, pw } = req.body
     if (!(name && email && pw)) { return res.json({ success: false, message: '빈값을 채워주세요.' }) }
 
-    connectDB.query(`SELECT * from user WHERE name='${name}'`, (error, row) => {
+    connectDB.query(`SELECT * from user WHERE email='${email}'`, (error, row) => {
       if (error) return res.json({ success: false, message: error });
       if (row.length !== 0) { return res.json({ success: false, message: '가입된 유저입니다.' }) }
 

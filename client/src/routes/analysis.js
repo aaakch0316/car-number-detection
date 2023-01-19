@@ -31,7 +31,7 @@ const Analysis = () => {
     for (const num of data) {
         // console.log(num)
         const addWeekday = num.weekday;
-        console.log(addWeekday)
+        // console.log(addWeekday)
         chartWeekday[addWeekday].weekday += 1;
     }
 

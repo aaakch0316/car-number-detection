@@ -30,6 +30,16 @@ const Employees = () => {
         getCustomer()
     }, [])
 
+    const handlingDeleteDate = async (row) => {
+        try {
+
+            const res = await axios.get(`http://localhost:3005/user/delete/${row.id}`)
+            console.log(res)
+            getCustomer()
+        } catch (e) { console.log(e.message) }
+
+    }
+
     return (
         <Header>
             <main style={{ padding: "1rem 3rem" }}>
@@ -37,6 +47,18 @@ const Employees = () => {
                 <Table dataSource={data}>
                     <Column title="email" dataIndex="email" />
                     <Column title="name" dataIndex="name" />
+                    <Column
+                        title='Delete'
+
+                        render={(row) => (
+                            <div onClick={() => handlingDeleteDate(row)}>
+                                <Space size="middle">
+                                    Delete
+                                </Space>
+                            </div>
+                        )}
+
+                    />
                 </Table>
             </main>
         </Header>

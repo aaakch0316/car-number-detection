@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './signup.module.scss';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import useInput from './useInput.js'
 
@@ -88,7 +89,9 @@ const Signup = () => {
   const InputPWcheck = hasErrorPWcheck ? styles.invalid : styles.control
   const InputName = hasErrorName ? styles.invalid : styles.control
 
-  const navigateToHome = async () => {
+  const navigateToHome = () => navigate("/")
+
+  const navigateToSignup = async () => {
     console.log(enteredEmail, enteredPW, enteredName)
     try {
       const res = await axios.post('http://localhost:3005/auth/register', {
@@ -96,8 +99,12 @@ const Signup = () => {
         name: enteredName,
         pw: enteredPW
       })
-    } catch (e) { console.log(e.message) }
-    navigate("/");
+      alert(res.data.message)
+    } catch (e) {
+      console.log(e.message)
+      navigate("/");
+    }
+
   };
 
   return (
@@ -112,6 +119,7 @@ const Signup = () => {
             <div className={InputEmail}>
               <label htmlFor='email'>이메일</label>
               <input
+                placeholder='someone@example.com'
                 id='email'
                 type="text"
                 onChange={emailChangeHandler}
@@ -119,11 +127,12 @@ const Signup = () => {
                 value={enteredEmail}
               />
             </div>
-            {hasErrorEmail && (<p className={styles.caution}>아이디를 입력하세요</p>)}
+            {hasErrorEmail && (<p className={styles.caution}>이메일을 입력하세요</p>)}
 
             <div className={InputPW}>
               <label>비밀번호</label>
               <input
+                placeholder='********'
                 type="password"
                 onChange={PWChangeHandler}
                 onBlur={PWChangeblurHandler}
@@ -135,6 +144,7 @@ const Signup = () => {
             <div className={InputPWcheck}>
               <label>비밀번호 확인</label>
               <input
+                placeholder='********'
                 type="password"
                 onChange={PWcheckChangeHandler}
                 onBlur={PWcheckChangeblurHandler}
@@ -158,9 +168,13 @@ const Signup = () => {
           </div>
           <div className={styles.actions}>
             <button
-              onClick={navigateToHome}
+              onClick={navigateToSignup}
               disabled={!formIsValid}
               type='submit'>가입하기
+            </button>
+            <button
+              onClick={navigateToHome}
+            >로그인 화면으로
             </button>
           </div>
         </form>

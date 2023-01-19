@@ -15,15 +15,10 @@ const Notification = () => {
 
     useEffect(() => {
         getCustomer()
-    }, [])
-
+    }, [data])
 
     const ds = data.reverse().slice(0, 8)
-    // const dwd = {data.users.map((user) => (
-    //     <li key={user.id}>
-    //         { }
-    //     </li>
-    // ))}
+
     return (
         <div>
             {ds.map((carlist) => (
@@ -32,21 +27,15 @@ const Notification = () => {
                         ○
                     </div >
                     <div >
-                        이름: <span>{carlist.name}</span>
+                        고객명: <span>{carlist.username}</span>
                         <br />
-                        차량번호: <span>{carlist.car_number}</span>
+                        차량번호: <span>{carlist.carNumber}</span>
+                        <br />
+                        고객등급: <span>{carlist.grade}</span>
                     </div >
                 </div>
             ))}
         </div>
-
-
-
-        //         {/* <span>{carNumber}</span><br /> */}
-        //         {/* <span>{data[0].id}</span><br /> */}
-        //         <span>등급: none</span>
-        //     </div>
-        // </div >
     )
 }
 

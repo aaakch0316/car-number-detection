@@ -1,6 +1,5 @@
 import Header from "../components/templates/Header";
-import { Space, Table, Tag } from 'antd';
-import dummy from "./dummyinout.json"
+import { Table, Tag } from 'antd';
 import { useState, useEffect } from "react";
 import axios from 'axios'
 

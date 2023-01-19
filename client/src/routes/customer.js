@@ -3,6 +3,13 @@ import { Space, Table, Tag, Button } from 'antd';
 import { useState, useEffect } from "react";
 import axios from 'axios'
 
+
+const test = {
+  borderRadius: '5px',
+  backgroundColor: '#ffffff',
+  width: '100px'
+}
+
 const dummyData = [
   {
     key: '1',
@@ -40,13 +47,16 @@ export default function Customer() {
 
   const handlingCreateData = async () => {
     try {
-      if (name && carNumber && type) {
-        console.log(name, carNumber, type)
+      if (username && carNumber && type && grade) {
+        console.log(username, carNumber, type, grade)
         const res = await axios.post('http://localhost:3005/customer', {
-          name: name,
+          username: username,
           type: type,
-          carNumber: carNumber
+          carNumber: carNumber,
+          grade: grade
         })
+        console.log(res.data)
+        console.log(res.data.data)
         getCustomer()
       }
     } catch (e) { console.log(e.message) }
@@ -65,9 +75,10 @@ export default function Customer() {
     // setData(update)
   }
 
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [carNumber, setCarNumber] = useState('');
   const [type, setType] = useState('');
+  const [grade, setGrade] = useState('');
 
   const handlingName = (event) => {
     setName(event.target.value)
@@ -78,6 +89,9 @@ export default function Customer() {
   const handlingType = (event) => {
     setType(event.target.value)
   }
+  const handlingGrade = (event) => {
+    setGrade(event.target.value)
+  }
   return (
     <Header>
       <main style={{ padding: "1rem 3rem" }}>
@@ -85,50 +99,60 @@ export default function Customer() {
         <div style={{
           display: 'flex',
           // flexDirection: 'column',
-          justifyContent: 'space-between',
+          justifyContent: 'space-around',
           width: '100%',
-          margin: '10px',
-          border: '3px solid #fafafa',
-          marginTop: '3px'
+          marginBottom: '10px',
+          border: '1px solid #ebebeb',
+          borderRadius: '10px',
+          backgroundColor: '#fafafa',
+          marginTop: '3px',
+          paddingTop: '20px',
+
         }}>
           <div>
-            <label htmlFor="name">name: </label>
-            <input style={{
-              backGroundColor: "#f1f2f4"
-
-            }}
-              id="name" type="text" value={name} onChange={handlingName}
+            <label htmlFor="username">Name </label>
+            <input style={test}
+              id="username" type="text" value={username} onChange={handlingName}
             />
           </div>
           <div>
-            <label htmlFor="carNumber">carNumber: </label>
-            <input
+            <label htmlFor="carNumber">CarNumber </label>
+            <input style={test}
               id="carNumber" type="text" value={carNumber} onChange={handlingCarNumber}
             />
           </div>
           <div>
-            <label htmlFor="type">type: </label>
-            <input
+            <label htmlFor="type">Type </label>
+            <input style={test}
               id="type" type="text" value={type} onChange={handlingType}
             />
           </div>
-          <Button
-            onClick={() => handlingCreateData()}
-            type="primary"
-            style={{
-              marginBottom: 16,
-            }}
-          >
-            Add a row
-          </Button>
+          <div>
+            <label htmlFor="grade">grade </label>
+            <input style={test}
+              id="grade" type="text" value={grade} onChange={handlingGrade}
+            />
+          </div>
+          <div>
+            <Button
+              onClick={() => handlingCreateData()}
+              type="primary"
+              style={{
+                marginBottom: 16,
+              }}
+            >
+              Add a row
+
+            </Button>
+          </div>
         </div>
 
-
-        <Table rowKey='id' dataSource={data}>
+        <Table rowKey='id' dataSource={data} maxWidth="70vh">
           <Column title="ID" dataIndex="id" />
-          <Column title="Name" dataIndex="name" />
-          <Column title="Car_Num" dataIndex="car_number" />
+          <Column title="Name" dataIndex="username" />
+          <Column title="Car_Num" dataIndex="carNumber" />
           <Column title="Type" dataIndex="type" />
+          <Column title="Grade" dataIndex="grade" />
           <Column
             title='Delete'
 

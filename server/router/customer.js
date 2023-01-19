@@ -30,8 +30,9 @@ router.get("/:customerId", async function (req, res) {
 router.post("/", async function (req, res) {
   console.log("[POST] /")
   try {
-    const { name, type, carNumber } = req.body
-    connectDB.query(`INSERT INTO customer ( name, type, car_number ) VALUES ('${name}', ${type}, '${carNumber}');`, (error, rows) => {
+    const { username, type, carNumber, grade } = req.body
+    connectDB.query(`INSERT INTO customer ( username, type, carNumber, grade ) VALUES ('${username}', '${type}', '${carNumber}', '${grade}')`, (error, rows) => {
+      // connectDB.query(`INSERT INTO customer ( username, type, car_number, grade ) VALUES ('', '', '', '')`, (error, rows) => {
       if (error) return res.json({ success: false, message: error });
       return res.json({ success: true, data: rows })
     });

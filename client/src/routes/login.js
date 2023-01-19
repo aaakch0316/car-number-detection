@@ -81,9 +81,9 @@ const Login = (props) => {
       })
       console.log(res)
       if (res.data.success) {
-        navigate("/Monitering");
+        navigate("/analysis");
       }
-    } catch (e) { console.log(e.message) }
+    } catch (e) { alert(e.message) }
   };
 
   return (
@@ -102,7 +102,7 @@ const Login = (props) => {
               <div className={InputEmail}>
                 <label htmlFor='id'>Email</label>
                 <input
-                  placeholder='someone@example.com'
+                  placeholder='이메일을 입력하세요'
                   type="text"
                   id='id'
                   onChange={idChangeHandler}
@@ -110,13 +110,12 @@ const Login = (props) => {
                   value={enteredEmail}
                 />
               </div>
-              {idIsToched && (<p className={styles.caution}>이메일을 입력하세요</p>)}
-
+              {idIsToched && (<p className={styles.caution}>올바른 형식이 아닙니다</p>)}
 
               <div className={InputPW}>
                 <label htmlFor='pw'>PW</label>
                 <input
-                  placeholder='********'
+                  placeholder='비밀번호를 입력하세요'
                   type='password'
                   pw='pw'
                   onChange={pwChangeHandler}
@@ -124,7 +123,7 @@ const Login = (props) => {
                   value={enteredPW}
                 />
               </div>
-              {pwIsToched && (<p className={styles.caution}>비밀번호를 입력하세요</p>)}
+              {/* {pwIsToched && (<p className={styles.caution}>비밀번호를 입력하세요</p>)} */}
 
 
             </div>
@@ -137,6 +136,7 @@ const Login = (props) => {
               <button onClick={navigateTosignup}>
                 회원가입
               </button>
+
             </div>
           </form>
         </div>
