@@ -1,30 +1,28 @@
-import React from 'react'
-import Webcam from "react-webcam";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const Test = () => {
-    const webcamRef = React.useRef(null);
-    const [imgSrc, setImgSrc] = React.useState(null);
+const VideoBox4 = () => {
+    const [videoUrl, setVideoUrl] = useState(null);
 
-    const capture = React.useCallback(() => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        setImgSrc(imageSrc);
-    }, [webcamRef, setImgSrc]);
+    useEffect(() => {
+        axios.get('http://localhost:5000/video')
+            .then(response => {
+                console.log(response);
+                setVideoUrl(response.request.responseURL);
+            });
+    }, []);
 
     return (
-        <>
-            <Webcam
-                audio={false}
-                ref={webcamRef}
-                screenshotFormat="image/jpeg"
-            />
-            <button onClick={capture}>Capture photo</button>
-            {imgSrc && (
-                <img
-                    src={imgSrc}
-                />
-            )}
-        </>
-    );
-};
+        <div >
+            <div>
+                {videoUrl && <video src={videoUrl} autoPlay={true} />}
 
-export default Test
+            </div>
+        </div>
+
+    )
+}
+
+export default VideoBox4;
+
+
