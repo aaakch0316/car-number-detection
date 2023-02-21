@@ -13,8 +13,6 @@ import VisitorAccess from './routes/visitor-access';
 import Analysis from './routes/analysis'
 import Employees from './routes/employees'
 import Monitering from './routes/Monitering'
-import Test from './routes/test'
-import Test2 from './routes/test2'
 // import { Link } from "react-router-dom";
 
 
@@ -39,8 +37,6 @@ root.render(
       <Route path="customer" element={<Customer />} />
       <Route path="visitor-access" element={<VisitorAccess />} />
       <Route path="analysis" element={<Analysis />} />
-      <Route path="test" element={<Test />} />
-      <Route path="test2" element={<Test />} />
       <Route path="employees" element={<Employees />} />
       <Route path="Monitering" element={<Monitering />} />
       <Route path="login" element={<Login />} />

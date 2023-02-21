@@ -1,1 +1,0 @@
-create table `my TestTBL`(id int);

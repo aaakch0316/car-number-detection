@@ -33,8 +33,8 @@ const VideoBox4 = () => {
                         {/* <video src="http://localhost:5000/video" autoPlay={true} width='500px' height="500px" /> */}
                         <iframe id="inlineFrameExample"
                             title="Inline Frame Example"
-                            width="700px"
-                            height="500px"
+                            width="640px"
+                            height="480px"
                             allowfullscreen={true}
                             src="http://localhost:5000/video">
                         </iframe>

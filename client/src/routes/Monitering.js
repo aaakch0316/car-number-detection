@@ -16,19 +16,19 @@ const Monitering = () => {
             <h2>CCTV</h2>
           </div>
           <div>
-            <VideoBox
+            {/* <VideoBox
               title={'CCTV_No1'}
               name={'1번 차량'}
               type={'1'}
               carNumber={'59버 0596'}
               image={'/images/test_IMG_5288.png'}
-            />
+            /> */}
 
             <VideoBox4 />
-            <VideoBox2
+            {/* <VideoBox2
               title={'CCTV_No2'}
               image={'/images/qqqqq.png'}
-            />
+            /> */}
 
             <VideoBox3 />
 
