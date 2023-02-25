@@ -1,6 +1,6 @@
 /Lib
 /yolov5
-/Scripts
+
 
 *.pt
 *.jpg
