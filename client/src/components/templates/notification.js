@@ -14,7 +14,9 @@ const Notification = () => {
     }
 
     useEffect(() => {
-        getCustomer()
+        setInterval(() => {
+            getCustomer()
+        }, 1000);
     }, [data])
 
     const ds = data.reverse().slice(0, 8)

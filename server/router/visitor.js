@@ -19,12 +19,11 @@ module.exports = router;
 // get ids
 router.get("/search", async function (req, res) {
   console.log("/visitor", req.query);
-  const { car_number } = req.params
-  try {
-    // connectDB.query('SELECT * from visitor', (error, rows) => {
+  const { car_number } = req.query
+  console.log(car_number)
 
-    connectDB.query(`SELECT * from visitor WHERE car_number=${car_number}`, (error, row) => {
-      // connectDB.query(`SELECT * from visitor WHERE car_number="59버0596"`, (error, row) => {
+  try {
+    connectDB.query(`SELECT * from visitor WHERE car_number="${car_number}"`, (error, row) => {
       if (error) return res.json({ success: false, message: error });
       return res.json({ success: true, data: row })
     });

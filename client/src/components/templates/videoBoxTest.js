@@ -2,8 +2,6 @@ import React, { useCallback, useRef, useState } from "react";
 import styles from './videoBox.module.scss';
 import axios from 'axios';
 
-import Webcam from "react-webcam";
-
 const typeSelector = {
     RED: 1,
     GOLD: 2,
@@ -11,7 +9,7 @@ const typeSelector = {
     BLACK: 4
 }
 
-const VideoBox3 = (props) => {
+const VideoBox2 = (props) => {
 
     const [img, setImg] = useState(null);
     const webcamRef = useRef(null);
@@ -113,8 +111,8 @@ const VideoBox3 = (props) => {
         <div className={styles.container}>
             <div>
                 <header>
-                    <h2 className={styles.title}>CCTV_No</h2>
-                    <button
+                    <h2 className={styles.title}>{props.title}</h2>
+                    {/* <button
                         variant="contained"
                         onClick={submitHandler}
                         className={styles.submit}
@@ -144,7 +142,7 @@ const VideoBox3 = (props) => {
                         onClick={(e) => e.target.value = null}
                         ref={refParam => inputRef = refParam}
                         style={{ display: "none" }}
-                    />
+                    /> */}
 
                 </header>
                 <body>
@@ -180,4 +178,4 @@ const VideoBox3 = (props) => {
     )
 }
 
-export default VideoBox3
+export default VideoBox2

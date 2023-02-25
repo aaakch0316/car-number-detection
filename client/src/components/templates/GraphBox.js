@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './GraphBox.module.scss';
 import { ResponsiveBar } from '@nivo/bar';
-import dummy from "../../routes/dummyinout.json"
 
 const GraphBox = (props) => {
     // const wdata = props.wdata

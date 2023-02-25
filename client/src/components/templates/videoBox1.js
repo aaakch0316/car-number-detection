@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './videoBox.module.scss';
 import axios from 'axios';
 
-const VideoBox4 = () => {
-    const [videoUrl, setVideoUrl] = useState('http://localhost:5000/video');
+const VideoBox1 = (props) => {
+    // const [videoUrl, setVideoUrl] = useState('http://localhost:5000/video');
 
     // useEffect(() => {
     //     function handleVideoUrl() {
@@ -21,7 +21,7 @@ const VideoBox4 = () => {
         <div className={styles.container}>
             <div>
                 <header>
-                    <h2 className={styles.title}>CCTV_No</h2>
+                    <h2 className={styles.title}>{props.title}</h2>
                 </header>
                 <body>
                     <div style={{
@@ -47,6 +47,6 @@ const VideoBox4 = () => {
     )
 }
 
-export default VideoBox4;
+export default VideoBox1;
 
 
